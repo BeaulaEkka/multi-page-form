@@ -11,6 +11,7 @@ interface InputProps {
   min?: number;
   max?: number;
   errorMsg?: string;
+  placeholder?: string;
 }
 export default function Input({
   label,
@@ -23,6 +24,7 @@ export default function Input({
   min,
   max,
   errorMsg,
+  placeholder,
 }: InputProps) {
   // const { updateNewDealDetails, newDealData } = useAddDealConext();
 
@@ -31,7 +33,7 @@ export default function Input({
   // };
   return (
     <div>
-      <label htmlFor={id} className="block text-lg">
+      <label htmlFor={id} className="block text-sm text-slate-500 mb-1">
         {label}
         {description && (
           <span className="text-sm text-slate-200 block mb-1">
@@ -40,7 +42,7 @@ export default function Input({
         )}
       </label>
       <input
-        className="w-full rounded-md py-4 px-2 text-slate-900"
+        className="w-full h-12 rounded-md py-4 px-4 text-slate-900 "
         type={type}
         name={id}
         id={id}
@@ -49,6 +51,7 @@ export default function Input({
         minLength={minLength}
         min={min}
         max={max}
+        placeholder={placeholder}
       />
       <div className="min-h-8 mt-1">
         {errorMsg && (
