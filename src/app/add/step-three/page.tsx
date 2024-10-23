@@ -1,5 +1,11 @@
 import React from "react";
 
+import StepThreeForm from "./StepThreeForm";
+
 export default function page() {
-  return <div>this is step three page</div>;
+  return (
+    <div>
+      <StepThreeForm />
+    </div>
+  );
 }

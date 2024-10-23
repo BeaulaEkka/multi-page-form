@@ -1,4 +1,6 @@
 import StepOneForm from "./add/step-one/StepOneForm";
+import StepThreeForm from "./add/step-three/StepThreeForm";
+import StepTwoForm from "./add/step-two/StepTwoForm";
 
 export default function Home() {
   return (
@@ -8,9 +10,7 @@ export default function Home() {
         <p className="text-white">
           Have an amazing deal or discount tailored for developers? Let us know!
         </p>
-        <div className="w-[400px] mt-6">
-          <StepOneForm />
-        </div>
+        <div className="w-[400px] mt-6 border border-red-500">ddd</div>
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import StepNavigation from "./components/StepNavigation";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -26,9 +27,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-slate-900`}
       >
-        {children}
+        <div className="flex gap-5 j w-[70%] mx-auto items-center">
+          <StepNavigation />
+          <div className="flex">{children}</div>
+        </div>
       </body>
     </html>
   );
