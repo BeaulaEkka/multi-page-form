@@ -4,55 +4,62 @@ import React from "react";
 import clsx from "clsx";
 import { MoveLeft } from "lucide-react";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
+import { useEffect } from "react";
 
 const steps = [
-  { id: 1, title: "Step One", route: "step-one", link: "/add/step-one" },
-  { id: 2, title: "Step Two", route: "step-two", link: "/add/step-two" },
-  { id: 3, title: "Step Three", route: "step-three", link: "/add/step-three" },
-  { id: 4, title: "Review", route: "review", link: "/add/review" },
+  { title: "Step One", route: "step-one", link: "/add/step-one" },
+  { title: "Step Two", route: "step-two", link: "/add/step-two" },
+  { title: "Step Three", route: "step-three", link: "/add/step-three" },
+  { title: "Review", route: "review", link: "/add/review" },
 ];
 
 export default function StepNavigation() {
   const pathname = usePathname();
   const currentPath = pathname.split("/").pop();
 
-  const setCurrentStep = (id: number) => {};
-
   console.log("currentpathstepnavigation", currentPath);
+
+  const [currentStep, setCurrentStep] = useState(0);
+
+  useEffect(() => {
+    const step = steps.findIndex((step) => step.route === currentPath);
+    setCurrentStep(step);
+  }, [currentPath]);
 
   return (
     <div>
-      <button
-        type="button"
+      <Link
+        href={steps[currentStep - 1]?.link || steps[0].link}
         className="mb-4 flex items-center gap-2 text-xl text-white/50 lg:mb-12 lg:gap-5 "
       >
         <span>
           <MoveLeft />
         </span>
         Back
-      </button>
+      </Link>
       {/** list of form steps */}
       <div className="relative flex flex-row justify-between lg:flex-col lg:justify-start lg:gap-8">
-        {steps.map((step) => (
+        {steps.map((step, i) => (
           <Link
-            key={step.id}
+            key={i}
             href={step.link}
             className="group z-20 flex items-center gap-3 text-2xl"
-            onClick={() => setCurrentStep(step.id)}
+            onClick={() => setCurrentStep(step.link)}
             prefetch={false}
           >
             <span
               className={clsx(
-                "flex h-10 w-10 items-center justify-center rounded-full border text-sm transition-colors duration-200 lg:h-12 lg:w-12 lg:text-lg text-white ",
+                "flex h-8 w-8 items-center justify-center rounded-full border text-sm transition-colors duration-200 lg:h-10 lg:w-10 lg:text-lg text-white",
                 {
                   "border-none bg-teal-500 text-black group-hover:border-none group-hover:text-black":
                     currentPath === step.route,
-                  "border-white/75 bg-gray-900 group-hover:border-white group-hover:text-white text-white/75":
-                    currentPath === step.route,
+                  "border-white/65  group-hover:border-white group-hover:text-white text-white/75":
+                    currentPath !== step.route,
                 }
               )}
             >
-              {step.id}
+              {i + 1}
             </span>
             <span
               className={clsx(
