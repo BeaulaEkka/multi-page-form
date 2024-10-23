@@ -3,10 +3,10 @@
 interface InputProps {
   label: string;
   id: string;
-  description: string;
-  required: string;
-  pattern: string;
-  type: string;
+  description?: string;
+  required?: boolean;
+  pattern?: string;
+  type?: string;
   minLength?: number;
   min?: number;
   max?: number;
@@ -40,7 +40,6 @@ export default function Input({
         )}
       </label>
       <input
-        type="text"
         className="w-full rounded-md py-4 px-2 text-slate-900"
         type={type}
         name={id}
@@ -50,9 +49,12 @@ export default function Input({
         minLength={minLength}
         min={min}
         max={max}
-        onChange={handleInputChange}
-        defaultValue={newDealData[id]}
       />
+      <div className="min-h-8 mt-1">
+        {errorMsg && (
+          <span className="text-red-500 text-sm block">{errorMsg}</span>
+        )}
+      </div>
     </div>
   );
 }
