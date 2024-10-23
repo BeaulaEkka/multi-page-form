@@ -2,13 +2,13 @@
 import Link from "next/link";
 import React from "react";
 import clsx from "clsx";
-
+import { MoveLeft } from "lucide-react";
 import { usePathname } from "next/navigation";
 
 const steps = [
-  { id: 1, title: "Step 1", route: "step-one", link: "/add/step-one" },
-  { id: 2, title: "Step 2", route: "step-two", link: "/add/step-two" },
-  { id: 3, title: "Step 3", route: "step-three", link: "/add/step-three" },
+  { id: 1, title: "Step One", route: "step-one", link: "/add/step-one" },
+  { id: 2, title: "Step Two", route: "step-two", link: "/add/step-two" },
+  { id: 3, title: "Step Three", route: "step-three", link: "/add/step-three" },
   { id: 4, title: "Review", route: "review", link: "/add/review" },
 ];
 
@@ -24,8 +24,11 @@ export default function StepNavigation() {
     <div>
       <button
         type="button"
-        className="mb-4 flex items-center gap-2 text-xl disabled:text-white/50 lg:mb-12 lg:gap-5"
+        className="mb-4 flex items-center gap-2 text-xl text-white/50 lg:mb-12 lg:gap-5 "
       >
+        <span>
+          <MoveLeft />
+        </span>
         Back
       </button>
       {/** list of form steps */}
@@ -40,7 +43,7 @@ export default function StepNavigation() {
           >
             <span
               className={clsx(
-                "flex h-10 w-10 items-center justify-center rounded-full border text-sm transition-colors duration-200 lg:h-12 lg:text-lg",
+                "flex h-10 w-10 items-center justify-center rounded-full border text-sm transition-colors duration-200 lg:h-12 lg:w-12 lg:text-lg text-white ",
                 {
                   "border-none bg-teal-500 text-black group-hover:border-none group-hover:text-black":
                     currentPath === step.route,

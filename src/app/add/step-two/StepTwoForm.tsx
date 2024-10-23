@@ -1,6 +1,6 @@
 import Input from "@/app/components/Input";
 import SubmitButton from "@/app/components/SubmitButton";
-import React from "react";
+
 
 export default function StepTwoForm() {
   return (
