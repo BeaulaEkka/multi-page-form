@@ -31,7 +31,7 @@ export default function StepNavigation() {
     <div>
       <Link
         href={steps[currentStep - 1]?.link || steps[0].link}
-        className="mb-4 flex items-center gap-2 text-xl text-white/50 lg:mb-12 lg:gap-5 "
+        className="mb-4 flex items-center gap-2 text-xl text-white/20 lg:mb-12 lg:gap-5 "
       >
         <span>
           <MoveLeft />
@@ -42,11 +42,11 @@ export default function StepNavigation() {
       <div className="relative flex flex-row justify-between lg:flex-col lg:justify-start lg:gap-8">
         {steps.map((step, i) => (
           <Link
-            key={i}
+            key={step.link}
             href={step.link}
             className="group z-20 flex items-center gap-3 text-2xl"
-            onClick={() => setCurrentStep(step.link)}
-            prefetch={false}
+            // onClick={() => setCurrentStep(step)}
+            prefetch={true}
           >
             <span
               className={clsx(

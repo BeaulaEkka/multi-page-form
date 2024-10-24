@@ -1,5 +1,5 @@
 "use client";
 
 export default function ReviewForm() {
-  return <div>Review Form</div>;
+  return <div className="text-white">Review Form</div>;
 }

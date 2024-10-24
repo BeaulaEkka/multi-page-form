@@ -12,6 +12,8 @@ export default function StepOneForm() {
           type="text"
           required
           placeholder="John Doe"
+          pattern="^https?:\/\/(www\.)?[a-zA-Z0-9-]+(\.[a-zA-Z]{2,})+([\/a-zA-Z0-9#-._~:?+&%=]*)?$
+"
         />
         <Input label="Link" id="link" type="text" required placeholder="link" />
         <SubmitButton text="Submit" />

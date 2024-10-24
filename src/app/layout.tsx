@@ -29,19 +29,19 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-slate-900 mx-auto`}
       >
-        <div className="w-[60%] mx-auto flex flex-col gap-5 mt-40">
+        <div className="w-[60%] mx-auto flex flex-col gap-5 mt-28">
           <h1 className="text-5xl font-bold text-teal-500">Share a Deal</h1>
           <p className="text-white">
             Have an amazing deal or discount tailored for developers? Let us
             know!
           </p>
-          <div className="flex flex-col lg:flex-row gap-5 items-center mt-12 ">
-            <div className="w-[30%]">
+          <div className="flex flex-col lg:flex-row  items-center  ">
+            <div className="w-[30%]  ">
               {" "}
               <StepNavigation />
             </div>
 
-            <div className="w-[40%]">{children}</div>
+            <div className="w-[40%] mt-32 ">{children}</div>
           </div>
         </div>
       </body>
