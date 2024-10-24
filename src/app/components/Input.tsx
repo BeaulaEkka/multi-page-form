@@ -26,11 +26,6 @@ export default function Input({
   errorMsg,
   placeholder,
 }: InputProps) {
-  // const { updateNewDealDetails, newDealData } = useAddDealConext();
-
-  // const handleInputChange = (e: React.changeEvent<HTMLInputElement>) => {
-  //   updateNewDealDetails({ [e.target.name]: e.target.value });
-  // };
   return (
     <div>
       <label htmlFor={id} className="block text-sm text-slate-500 mb-1">
@@ -42,7 +37,9 @@ export default function Input({
         )}
       </label>
       <input
-        className="w-full h-12 rounded-md py-4 px-4 text-slate-900 "
+        className={`w-full h-10 rounded-md py-4 px-4 text-slate-900 border ${
+          errorMsg ? "border-red-500" : "border-slate-300"
+        } border-2`}
         type={type}
         name={id}
         id={id}
