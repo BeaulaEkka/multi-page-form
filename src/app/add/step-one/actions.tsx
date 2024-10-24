@@ -1,7 +1,8 @@
 "use server";
 
 import { stepOneSchema } from "@/app/schemas";
-import { FormErrors } from "@/app/types";
+import { AddDealRoutes, FormErrors } from "@/app/types";
+import { redirect } from "next/navigation";
 
 export const stepOneFormAction = (
   prevState: FormErrors | undefined,
@@ -16,5 +17,7 @@ export const stepOneFormAction = (
       return acc;
     }, {});
     return errors;
+  } else {
+    redirect(AddDealRoutes.COUPON_DETAILS);
   }
 };
